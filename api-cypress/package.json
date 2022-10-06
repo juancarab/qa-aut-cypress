@@ -1,0 +1,27 @@
+{
+  "name": "api-automation-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open-dev": "cypress open --config-file cypress-dev-api.config.js",
+    "cy:open-local": "cypress open --config-file cypress-local.config.js",
+    "cy:run-dev-all-api": "cypress run --config-file cypress-dev-api.config.js",
+    "cy:run-local-all": "cypress run --config-file cypress-local.config.js",
+    "cy:run-dev-user-api": "cypress run --config-file cypress-dev-api.config.js --spec cypress/e2e/user-v1/**/*",
+    "cy:run-local-user": "cypress run --config-file cypress-local.config.js --spec cypress/e2e/user-v1/**/*",
+    "cy:run-dev-user-gateway-api": "cypress run --config-file cypress-dev-gateway-api.config.js --spec cypress/e2e/user-v1/**/*",
+    "cy:run-dev-subscriptions-api": "cypress run --config-file cypress-dev-api.config.js --spec cypress/e2e/subscriptions-v1/**/*",
+    "cy:run-local-subscriptions": "cypress run --config-file cypress-local.config.js --spec cypress/e2e/subscriptions-v1/**/*"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.6.0"
+  },
+  "devDependencies": {
+    "@bahmutov/cy-api": "^2.1.3"
+  }
+}

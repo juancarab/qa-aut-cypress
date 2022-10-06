@@ -1,0 +1,36 @@
+image: cypress/base:latest
+options:
+  max-time: 10
+pipelines:
+  custom:
+    run-cypress-api-tests:
+      - variables:
+          - name: ENVIRONMENT
+            default: dev
+            allowed-values:
+             - dev
+             - uat
+             - sbx
+          - name: API_NAME
+            default: user
+            allowed-values:
+             - all
+             - user
+...........
+...........
+...........
+...........
+          - name: URL_VERSION
+            default: api
+            allowed-values:
+             - api
+             - gateway-api       
+      - step:
+          name: 'Run Cypress tests'
+          services:
+            - docker
+          script:
+            # install dependencies
+            - npm ci
+            # run Cypress tests
+            - npm run cy:run-$ENVIRONMENT-$API_NAME-$URL_VERSION
